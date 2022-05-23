@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Standard from "./components/Standard";
+import MethodContainer from "./components/MethodContainer";
+import Metric from "./components/Metric";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <h2>Calculate Your Body Mass Index (BMI)</h2>
+        <MethodContainer />
+        <Routes>
+          <Route path="/" element={<Standard />}></Route>
+          <Route path="/metric" element={<Metric />}></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
